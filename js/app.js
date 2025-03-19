@@ -1,28 +1,25 @@
 import Provider from './provider.js';
+import PersonnagesPage from './views/pages/personnages.js';
+import EquipementsPage from './views/pages/equipements.js';
 
 const provider = new Provider('http://localhost:3000');
-const main = document.querySelector('main');
+const content = document.querySelector('#content');
 
-async function afficherPersonnages() {
-    try {
-        const personnages = await provider.getPersonnages();
+// Définition des routes
+const routes = {
+    '/personnages': () => new PersonnagesPage(provider),
+    '/equipements': () => new EquipementsPage(provider),
+};
 
-        personnages.forEach(perso => {
-            const card = document.createElement('div');
-            card.classList.add('personnage-card');
-            card.innerHTML = `
-                <h2>${perso.name}</h2>
-                <p>Classe : ${perso.class}</p>
-                <p>Niveau : ${perso.level}</p>
-                <p>Note : ${perso.rating} ⭐</p>
-            `;
-            main.appendChild(card);
-        });
+// Fonction pour gérer le routage
+const router = async () => {
+    let hash = location.hash.slice(1) || '/personnages'; // Par défaut : personnages
+    const page = routes[hash] ? routes[hash]() : new PersonnagesPage(provider);
+    
+    content.innerHTML = await page.render();
+    await page.afterRender();
+};
 
-    } catch (error) {
-        console.error('Erreur de chargement des personnages :', error);
-        main.textContent = 'Erreur lors du chargement des personnages.';
-    }
-}
-
-afficherPersonnages();
+// Écouter les changements de hash dans l'URL
+window.addEventListener('hashchange', router);
+window.addEventListener('load', router);

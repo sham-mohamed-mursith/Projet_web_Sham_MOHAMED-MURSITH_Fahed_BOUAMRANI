@@ -15,7 +15,6 @@ export default class Provider {
         return response.json();
     }
 
-    // Exemple si tu veux récupérer un personnage par son id
     async getPersonnageById(id) {
         const response = await fetch(`${this.apiUrl}/personnages/${id}`);
         if (!response.ok) throw new Error('Personnage introuvable');
