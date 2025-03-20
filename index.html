@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Personnages & Équipements</title>
+    <title>Liste des Personnages</title>
+    <link rel="stylesheet" href="./css/styles.css">  
     <script type="module" src="./js/app.js"></script>
 </head>
 <body>
     <header>
-        <h1>Bienvenue dans l'application de gestion</h1>
-        <nav>
-            <ul>
-                <li><a href="#/personnages">Personnages</a></li>
-                <li><a href="#/equipements">Équipements</a></li>
-            </ul>
-        </nav>
+        <h1>Liste des Personnages</h1>
     </header>
-    <main id="content">
-        <p>Bienvenue ! Sélectionnez une catégorie ci-dessus.</p>
+    
+    <main>
+        <div id="characters-container" class="characters-grid"></div>
+
+        <div id="character-details" class="character-details hidden">
+            <button id="back-button">⬅ Retour</button>
+            <div id="details-content"></div>
+        </div>
     </main>
+    
     <footer>
-        <p>Le footer à finir</p>
+        <p>© 2025 - Tous droits réservés</p>
     </footer>
 </body>
 </html>
