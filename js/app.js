@@ -1,206 +1,87 @@
 import Provider from './provider.js';
+import { renderFavoris } from './views/favoris.js';
+import { renderDetail } from './views/detail.js';
 
 const provider = new Provider('http://localhost:3000');
-const container = document.getElementById("characters-container");
-const detailsContainer = document.getElementById("character-details");
-const detailsContent = document.getElementById("details-content");
-const backButton = document.getElementById("back-button");
-const voirFavorisBtn = document.getElementById("voir-favoris");
-const retourAccueilBtn = document.getElementById("retour-accueil");
-let equipements = [];
-let modeFavoris = false; // Pour savoir si on affiche les favoris
+const app = document.getElementById("app");
 
-async function getEquipements() {
-  try {
-    const data = await provider.getEquipements();
-    equipements = data;
-    return data;
-  } catch (error) {
-    console.error("Erreur de chargement des équipements :", error);
-    return [];
-  }
-}
-
-async function afficherPersonnages(personnagesFiltre = null) {
-  try {
-    container.innerHTML = '<div class="loader"></div>';
-    const [personnages, equip] = await Promise.all([provider.getPersonnages(), getEquipements()]);
-    const data = personnagesFiltre || personnages;
-    container.innerHTML = "";
-
-    data.forEach((perso, index) => {
-      setTimeout(() => {
-        const favoris = JSON.parse(localStorage.getItem('favoris')) || [];
-        const isFavori = favoris.includes(perso.id);
-        const starClass = isFavori ? 'fa-solid' : 'fa-regular';
-
-        const card = document.createElement("div");
-        card.classList.add("character-card", "fade-in");
-        card.innerHTML = `
-          <img src="${perso.image}" alt="${perso.name}">
-          <div class="character-info">
-            <h2>${perso.name}</h2>
-            <div class="character-meta">
-              <span class="character-class">${perso.class}</span>
-              <span class="character-level">Lv${perso.level}</span>
-            </div>
-            <div class="character-rating">
-              <span>${perso.rating}</span> ⭐
-            </div>
-            <button class="favori-btn" data-id="${perso.id}">
-              <i class="${starClass} fa-star"></i> Favori
-            </button>
-          </div>
-        `;
-
-        card.querySelector('img').addEventListener("click", () => afficherDetails(perso));
-
-        const favoriBtn = card.querySelector('.favori-btn');
-        favoriBtn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          toggleFavori(favoriBtn, perso.id);
-        });
-
-        container.appendChild(card);
-      }, index * 50);
-    });
-
-  } catch (error) {
-    console.error("Erreur de chargement des personnages :", error);
-    container.innerHTML = `<div class="error-message">
-      <p>Une erreur est survenue lors du chargement.</p>
-      <button onclick="afficherPersonnages()">Réessayer</button>
-    </div>`;
-  }
-}
-
-function getCharacterEquipment(perso) {
-  if (!perso.equipment || !equipements.length) return [];
-  return perso.equipment.map(equipId =>
-    equipements.find(e => e.id === equipId)
-  ).filter(e => e);
-}
-
-function afficherDetails(perso) {
-  const persoEquipements = getCharacterEquipment(perso);
-  let equipements = '';
-
-  if (persoEquipements.length > 0) {
-    equipements = `
-      <div class="equipment-list">
-        <h3>Équipements (${persoEquipements.length})</h3>
-        ${persoEquipements.map(equip => `
-          <div class="equipment-item">
-            <div>
-              <strong>${equip.name}</strong>
-              ${equip.damage ? `<p>Dégâts: ${equip.damage}</p>` : ''}
-              ${equip.defense ? `<p>Défense: ${equip.defense}</p>` : ''}
-              ${equip.effect ? `<p>Effet: ${equip.effect}</p>` : ''}
-            </div>
-            <span class="equipment-type">${equip.type}</span>
-          </div>
-        `).join('')}
-      </div>
-    `;
-  }
-
-  detailsContent.innerHTML = `
-    <img src="${perso.image}" alt="${perso.name}" class="character-image">
-    <div class="character-details-info">
-      <h2>${perso.name}</h2>
-      <p><strong>Classe:</strong> ${perso.class}</p>
-      <p><strong>Niveau:</strong> ${perso.level}</p>
-      <p><strong>Note:</strong> ${perso.rating} ⭐</p>
-      ${equipements}
-    </div>
-  `;
-
-  ajouterNotation(perso);
-
-  container.classList.add("hidden");
-  detailsContainer.classList.remove("hidden");
-
-  setTimeout(() => {
-    detailsContainer.classList.add("active");
-  }, 10);
-}
-
-function toggleFavori(button, id) {
-  let favoris = JSON.parse(localStorage.getItem('favoris')) || [];
-  const index = favoris.indexOf(id);
-
-  if (index === -1) {
-    favoris.push(id);
-    button.innerHTML = '<i class="fa-solid fa-star"></i> Favori';
-  } else {
-    favoris.splice(index, 1);
-    button.innerHTML = '<i class="fa-regular fa-star"></i> Favori';
-  }
-  localStorage.setItem('favoris', JSON.stringify(favoris));
-
-  // Si on est en mode favoris et qu'on retire => actualise
-  if (modeFavoris) afficherFavoris();
-}
-
-// Bouton voir favoris
-voirFavorisBtn.addEventListener("click", () => {
-  modeFavoris = true;
-  afficherFavoris();
-});
-
-// Bouton retour accueil
-retourAccueilBtn.addEventListener("click", () => {
-  modeFavoris = false;
-  afficherPersonnages();
-});
-
-function afficherFavoris() {
-  const favoris = JSON.parse(localStorage.getItem('favoris')) || [];
-  if (favoris.length === 0) {
-    container.innerHTML = `<p class="empty-favoris">Aucun favori enregistré.</p>`;
-    return;
-  }
+function renderHome() {
+  app.innerHTML = `<div class="characters-grid" id="characters-container"><div class="loader"></div></div>`;
   provider.getPersonnages().then(personnages => {
-    const favorisPersos = personnages.filter(p => favoris.includes(p.id));
-    afficherPersonnages(favorisPersos);
+    provider.getEquipements().then(equipements => {
+      const container = document.getElementById("characters-container");
+      container.innerHTML = "";
+      const favoris = JSON.parse(localStorage.getItem('favoris')) || [];
+
+      personnages.forEach((perso, index) => {
+        setTimeout(() => {
+          const isFavori = favoris.includes(perso.id);
+          const starClass = isFavori ? 'fa-solid' : 'fa-regular';
+          const card = document.createElement("div");
+          card.classList.add("character-card", "fade-in");
+          card.innerHTML = `
+            <img src="${perso.image}" alt="${perso.name}">
+            <div class="character-info">
+              <h2>${perso.name}</h2>
+              <div class="character-meta">
+                <span class="character-class">${perso.class}</span>
+                <span class="character-level">Lv${perso.level}</span>
+              </div>
+              <div class="character-rating">
+                <span>${perso.rating}</span> ⭐
+              </div>
+              <button class="favori-btn" data-id="${perso.id}">
+                <i class="${starClass} fa-star"></i> Favori
+              </button>
+            </div>
+          `;
+
+          card.querySelector("img").addEventListener("click", () => {
+            window.location.hash = `#/detail/${perso.id}`;
+          });
+
+          card.querySelector(".favori-btn").addEventListener("click", (e) => {
+            e.stopPropagation();
+            const id = perso.id;
+            let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
+            const index = favoris.indexOf(id);
+            if (index === -1) {
+              favoris.push(id);
+            } else {
+              favoris.splice(index, 1);
+            }
+            localStorage.setItem("favoris", JSON.stringify(favoris));
+            const icon = card.querySelector("i");
+            icon.classList.toggle("fa-solid");
+            icon.classList.toggle("fa-regular");
+
+          });
+
+          container.appendChild(card);
+        }, index * 50);
+      });
+    });
   });
 }
 
-backButton.addEventListener("click", () => {
-  detailsContainer.classList.remove("active");
-  setTimeout(() => {
-    detailsContainer.classList.add("hidden");
-    container.classList.remove("hidden");
-  }, 300);
+function router() {
+  const hash = window.location.hash;
+  if (!hash || hash === "#/" || hash === "") {
+    renderHome();
+  } else if (hash === "#/favoris") {
+    renderFavoris(provider);
+  } else if (hash.startsWith("#/detail/")) {
+    const id = hash.split("/")[2];
+    renderDetail(provider, id);
+  }
+}
+
+window.addEventListener("hashchange", router);
+window.addEventListener("load", router);
+
+document.getElementById("voir-favoris").addEventListener("click", () => {
+  window.location.hash = "#/favoris";
 });
-
-// Ajout de notation
-function ajouterNotation(personnage) {
-  const notationHTML = `
-    <div class="notation">
-      <h3>Noter ${personnage.name}</h3>
-      <label for="rating-input">Votre note (1 à 5) :</label>
-      <input type="number" id="rating-input" min="1" max="5" step="0.1" value="${personnage.rating}">
-      <button id="valider-note">Valider la note</button>
-    </div>
-  `;
-
-  detailsContent.insertAdjacentHTML("beforeend", notationHTML);
-
-  document.getElementById("valider-note").addEventListener("click", async () => {
-    const nouvelleNote = parseFloat(document.getElementById("rating-input").value);
-    if (nouvelleNote >= 1 && nouvelleNote <= 5) {
-      try {
-        await provider.updatePersonnageRating(personnage.id, nouvelleNote);
-        alert("Note mise à jour !");
-        window.location.reload();
-      } catch (error) {
-        alert("Erreur lors de la mise à jour de la note.");
-      }
-    } else {
-      alert("Merci d'entrer une note entre 1 et 5.");
-    }
-  });
-}
-
-afficherPersonnages();
+document.getElementById("retour-accueil").addEventListener("click", () => {
+  window.location.hash = "#/";
+});
