@@ -1,237 +1,270 @@
 {
   "personnages": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Geralt of Rivia",
       "class": "Witcher",
       "level": 55,
-      "equipment": [1, 4],
-      "rating": 4.9,
+      "equipment": [
+        1,
+        4
+      ],
+      "rating": 4.7,
       "image": "https://sm.ign.com/t/ign_fr/news/t/this-is-ho/this-is-how-big-the-script-was-for-the-witcher-3-w_nq5z.1280.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Link",
       "class": "Hero of Time",
       "level": 50,
-      "equipment": [2, 5],
-      "rating": 4.8,
+      "equipment": [
+        2,
+        5
+      ],
+      "rating": 5,
       "image": "https://pm1.aminoapps.com/6644/3ba27728b60c71236aba2c1a11898e6fe2f0d009_00.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Kratos",
       "class": "God of War",
       "level": 60,
-      "equipment": [3, 6],
-      "rating": 5.0,
+      "equipment": [
+        3,
+        6
+      ],
+      "rating": 4.7,
       "image": "https://i.redd.it/could-young-kratos-have-potentially-easily-beaten-thor-v0-ztiio7o52n4d1.jpg?width=1170&format=pjpg&auto=webp&s=45007b13e2994b8256c17eba4616283be0f92712"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Lara Croft",
       "class": "Adventurer",
       "level": 45,
-      "equipment": [7, 8],
+      "equipment": [
+        7,
+        8
+      ],
       "rating": 4.7,
       "image": "https://tse2.mm.bing.net/th?id=OIP.rvwAbppz5ZYa-nMeKD2jUQHaNK&pid=Api"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Master Chief",
       "class": "Spartan",
       "level": 58,
-      "equipment": [9, 10],
+      "equipment": [
+        9,
+        10
+      ],
       "rating": 4.9,
       "image": "https://img.lemde.fr/2021/12/08/0/269/899/600/1440/960/60/0/9ad47c7_874019193-60af561d-b95a-48be-a291-8e9c404a6174.jpeg"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Darth Vader",
       "class": "Sith Lord",
       "level": 65,
-      "equipment": [11],
-      "rating": 4.95,
+      "equipment": [
+        11
+      ],
+      "rating": 4.9,
       "image": "https://media.lematin.ch/4/image/2023/11/10/bc6a7f4d-19de-4bc6-8ed0-8904dfbeec99.jpeg?auto=format%2Ccompress%2Cenhance&fit=max&w=1200&h=1200&rect=0%2C0%2C640%2C426&fp-x=0.5&fp-y=0.5&s=ba603fd7c3f86bf25351d5e441ca5319"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Ezio Auditore",
       "class": "Assassin",
       "level": 48,
-      "equipment": [12, 13],
+      "equipment": [
+        12,
+        13
+      ],
       "rating": 4.8,
       "image": "https://global-img.gamergen.com/ezio-auditore-assassin-s-creed-ii_0900388953.jpg"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Cloud Strife",
       "class": "Ex-SOLDIER",
       "level": 52,
-      "equipment": [14],
+      "equipment": [
+        14
+      ],
       "rating": 4.9,
       "image": "https://i.kinja-img.com/image/upload/c_fill,h_675,pg_1,q_80,w_1200/d726806f5eb8110e0efd1390e17b22ab.jpg"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Mario",
       "class": "Plumber",
       "level": 40,
-      "equipment": [15, 16],
+      "equipment": [
+        15,
+        16
+      ],
       "rating": 4.6,
       "image": "data:image/jpeg;base64,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"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Solid Snake",
       "class": "Spy",
       "level": 53,
-      "equipment": [17, 18],
+      "equipment": [
+        17,
+        18
+      ],
       "rating": 4.85,
       "image": "https://images5.alphacoders.com/135/1359066.png"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Samus Aran",
       "class": "Bounty Hunter",
       "level": 57,
-      "equipment": [19, 20],
+      "equipment": [
+        19,
+        20
+      ],
       "rating": 4.9,
       "image": "https://image.jeuxvideo.com/medias-md/166539/1665389607-2073-card.png"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Sephiroth",
       "class": "One-Winged Angel",
       "level": 70,
-      "equipment": [21],
-      "rating": 5.0,
+      "equipment": [
+        21
+      ],
+      "rating": 5,
       "image": "https://images.p-nintendo.com/o/2020/12/5fd334033606ca.jpg"
     }
   ],
   "equipements": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Silver Sword",
       "type": "Sword",
       "damage": 55
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Master Sword",
       "type": "Sword",
       "damage": 60
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Blades of Chaos",
       "type": "Dual Blades",
       "damage": 75
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Witcher Armor",
       "type": "Armor",
       "defense": 45
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Hylian Shield",
       "type": "Shield",
       "defense": 50
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Leviathan Axe",
       "type": "Axe",
       "damage": 70
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Dual Pistols",
       "type": "Firearms",
       "damage": 40
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Explorer Outfit",
       "type": "Armor",
       "defense": 30
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "MA5B Assault Rifle",
       "type": "Firearm",
       "damage": 65
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "MJOLNIR Armor",
       "type": "Armor",
       "defense": 60
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Red Lightsaber",
       "type": "Lightsaber",
       "damage": 80
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Hidden Blade",
       "type": "Dagger",
       "damage": 35
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "Assassin Robe",
       "type": "Armor",
       "defense": 25
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "Buster Sword",
       "type": "Greatsword",
       "damage": 85
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "Fire Flower",
       "type": "Power-Up",
       "effect": "Shoots fireballs"
     },
     {
-      "id": 16,
+      "id": "16",
       "name": "Super Mushroom",
       "type": "Power-Up",
       "effect": "Grows in size"
     },
     {
-      "id": 17,
+      "id": "17",
       "name": "SOCOM Pistol",
       "type": "Firearm",
       "damage": 50
     },
     {
-      "id": 18,
+      "id": "18",
       "name": "Stealth Suit",
       "type": "Armor",
       "defense": 35
     },
     {
-      "id": 19,
+      "id": "19",
       "name": "Arm Cannon",
       "type": "Cannon",
       "damage": 75
     },
     {
-      "id": 20,
+      "id": "20",
       "name": "Varia Suit",
       "type": "Armor",
       "defense": 70
     },
     {
-      "id": 21,
+      "id": "21",
       "name": "Masamune",
       "type": "Katana",
       "damage": 100

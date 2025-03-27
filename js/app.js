@@ -25,23 +25,22 @@ async function afficherPersonnages() {
   try {
     // Afficher un loader pendant le chargement
     container.innerHTML = '<div class="loader"></div>';
-    
+
     // Récupérer les personnages et équipements en parallèle
     const [personnages, equip] = await Promise.all([
       provider.getPersonnages(),
       getEquipements()
     ]);
-    
+
     // Vider le container
     container.innerHTML = "";
-    
+
     // Ajouter les cartes avec un délai pour l'animation
     personnages.forEach((perso, index) => {
       setTimeout(() => {
         const card = document.createElement("div");
         card.classList.add("character-card", "fade-in");
-        
-        // Structure améliorée de la carte
+
         card.innerHTML = `
           <img src="${perso.image}" alt="${perso.name}">
           <div class="character-info">
@@ -56,11 +55,11 @@ async function afficherPersonnages() {
             </div>
           </div>
         `;
-        
-        // Ajouter l'event listener pour afficher les détails
-        card.addEventListener("click", () => afficherDetails(perso));
+
+        // Ajout de l'écouteur pour les détails
+        card.addEventListener("click", async () => await afficherDetails(perso));
         container.appendChild(card);
-      }, index * 50); // Décalage pour animation en cascade
+      }, index * 50); // Animation en cascade
     });
   } catch (error) {
     console.error("Erreur de chargement des personnages :", error);
@@ -73,20 +72,22 @@ async function afficherPersonnages() {
   }
 }
 
-// Fonction pour trouver les équipements d'un personnage
+// Fonction pour trouver les équipements d’un personnage
 function getCharacterEquipment(perso) {
   if (!perso.equipment || !equipements.length) return [];
-  return perso.equipment.map(equipId => 
+  return perso.equipment.map(equipId =>
     equipements.find(e => e.id === equipId)
-  ).filter(e => e); // Filtrer les undefined
+  ).filter(e => e);
 }
 
-// Fonction pour afficher les détails avec plus d'informations
-function afficherDetails(perso) {
-  // Récupérer les équipements du personnage
+// Fonction pour afficher les détails
+async function afficherDetails(perso) {
+  if (!equipements.length) {
+    await getEquipements(); // S'assurer que les équipements sont chargés
+  }
+
   const persoEquipements = getCharacterEquipment(perso);
-  
-  // Construire le HTML des équipements
+
   let equipementsHTML = '';
   if (persoEquipements.length > 0) {
     equipementsHTML = `
@@ -106,8 +107,8 @@ function afficherDetails(perso) {
       </div>
     `;
   }
-  
-  // Mettre à jour le contenu des détails
+
+  // Affichage des infos
   detailsContent.innerHTML = `
     <img src="${perso.image}" alt="${perso.name}" class="character-image">
     <div class="character-details-info">
@@ -118,48 +119,54 @@ function afficherDetails(perso) {
       ${equipementsHTML}
     </div>
   `;
-  
-  // Afficher le conteneur de détails avec animation
+
+  ajouterNotation(perso);
+
   container.classList.add("hidden");
   detailsContainer.classList.remove("hidden");
-  
-  // Ajouter la classe active pour l'animation
+
   setTimeout(() => {
     detailsContainer.classList.add("active");
   }, 10);
 }
 
-// Gérer le retour à la liste avec animation
+// Gérer le retour
 backButton.addEventListener("click", () => {
-  // Retirer la classe active pour déclencher l'animation de sortie
   detailsContainer.classList.remove("active");
-  
-  // Attendre la fin de l'animation avant de cacher l'élément
   setTimeout(() => {
     detailsContainer.classList.add("hidden");
     container.classList.remove("hidden");
   }, 300);
 });
 
-// Initialiser l'application
-afficherPersonnages();
+// Ajout de notation
+function ajouterNotation(personnage) {
+  const notationHTML = `
+    <div class="notation">
+      <h3>Noter ${personnage.name}</h3>
+      <label for="rating-input">Votre note (1 à 5) :</label>
+      <input type="number" id="rating-input" min="1" max="5" step="0.1" value="${personnage.rating}">
+      <button id="valider-note">Valider la note</button>
+    </div>
+  `;
 
-// Ajouter la gestion du "swipe" sur mobile pour revenir en arrière
-let touchStartX = 0;
-let touchEndX = 0;
+  detailsContent.insertAdjacentHTML("beforeend", notationHTML);
 
-detailsContainer.addEventListener('touchstart', e => {
-  touchStartX = e.changedTouches[0].screenX;
-});
-
-detailsContainer.addEventListener('touchend', e => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
-});
-
-function handleSwipe() {
-  // Si le swipe va de gauche à droite (>100px), on retourne à la liste
-  if (touchEndX - touchStartX > 100) {
-    backButton.click();
-  }
+  document.getElementById("valider-note").addEventListener("click", async () => {
+    const nouvelleNote = parseFloat(document.getElementById("rating-input").value);
+    if (nouvelleNote >= 1 && nouvelleNote <= 5) {
+      try {
+        await provider.updatePersonnageRating(personnage.id, nouvelleNote);
+        alert("Note mise à jour !");
+        window.location.reload();
+      } catch (error) {
+        alert("Erreur lors de la mise à jour de la note.");
+      }
+    } else {
+      alert("Merci d'entrer une note entre 1 et 5.");
+    }
+  });
 }
+
+// Lancement initial
+afficherPersonnages();
