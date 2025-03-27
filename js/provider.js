@@ -71,4 +71,15 @@ export default class Provider {
       const equipements = await this.getEquipements();
       return equipements.find(e => e.id === id);
     }
+
+    
+    async updatePersonnageRating(id, newRating) {
+      const response = await fetch(`${this.apiUrl}/personnages/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ rating: newRating })
+      });
+      if (!response.ok) throw new Error("Échec de la mise à jour de la note");
+      return response.json();
+    }
   }

@@ -83,10 +83,10 @@ function getCharacterEquipment(perso) {
 
 function afficherDetails(perso) {
   const persoEquipements = getCharacterEquipment(perso);
-  let equipementsHTML = '';
+  let equipements = '';
 
   if (persoEquipements.length > 0) {
-    equipementsHTML = `
+    equipements = `
       <div class="equipment-list">
         <h3>Équipements (${persoEquipements.length})</h3>
         ${persoEquipements.map(equip => `
@@ -111,9 +111,11 @@ function afficherDetails(perso) {
       <p><strong>Classe:</strong> ${perso.class}</p>
       <p><strong>Niveau:</strong> ${perso.level}</p>
       <p><strong>Note:</strong> ${perso.rating} ⭐</p>
-      ${equipementsHTML}
+      ${equipements}
     </div>
   `;
+
+  ajouterNotation(perso);
 
   container.classList.add("hidden");
   detailsContainer.classList.remove("hidden");
@@ -172,23 +174,33 @@ backButton.addEventListener("click", () => {
   }, 300);
 });
 
-afficherPersonnages();
+// Ajout de notation
+function ajouterNotation(personnage) {
+  const notationHTML = `
+    <div class="notation">
+      <h3>Noter ${personnage.name}</h3>
+      <label for="rating-input">Votre note (1 à 5) :</label>
+      <input type="number" id="rating-input" min="1" max="5" step="0.1" value="${personnage.rating}">
+      <button id="valider-note">Valider la note</button>
+    </div>
+  `;
 
-// Swipe mobile
-let touchStartX = 0;
-let touchEndX = 0;
+  detailsContent.insertAdjacentHTML("beforeend", notationHTML);
 
-detailsContainer.addEventListener('touchstart', e => {
-  touchStartX = e.changedTouches[0].screenX;
-});
-
-detailsContainer.addEventListener('touchend', e => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
-});
-
-function handleSwipe() {
-  if (touchEndX - touchStartX > 100) {
-    backButton.click();
-  }
+  document.getElementById("valider-note").addEventListener("click", async () => {
+    const nouvelleNote = parseFloat(document.getElementById("rating-input").value);
+    if (nouvelleNote >= 1 && nouvelleNote <= 5) {
+      try {
+        await provider.updatePersonnageRating(personnage.id, nouvelleNote);
+        alert("Note mise à jour !");
+        window.location.reload();
+      } catch (error) {
+        alert("Erreur lors de la mise à jour de la note.");
+      }
+    } else {
+      alert("Merci d'entrer une note entre 1 et 5.");
+    }
+  });
 }
+
+afficherPersonnages();
