@@ -303,3 +303,12 @@ header button i {
 .notation button:hover {
   background-color: #1a252f;
 }
+
+#search-bar {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 30px;
+  width: 300px;
+  margin-top: 10px;
+}
