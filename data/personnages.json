@@ -143,131 +143,152 @@
     }
   ],
   "equipements": [
-    {
-      "id": "1",
-      "name": "Silver Sword",
-      "type": "Sword",
-      "damage": 55
-    },
-    {
-      "id": "2",
-      "name": "Master Sword",
-      "type": "Sword",
-      "damage": 60
-    },
-    {
-      "id": "3",
-      "name": "Blades of Chaos",
-      "type": "Dual Blades",
-      "damage": 75
-    },
-    {
-      "id": "4",
-      "name": "Witcher Armor",
-      "type": "Armor",
-      "defense": 45
-    },
-    {
-      "id": "5",
-      "name": "Hylian Shield",
-      "type": "Shield",
-      "defense": 50
-    },
-    {
-      "id": "6",
-      "name": "Leviathan Axe",
-      "type": "Axe",
-      "damage": 70
-    },
-    {
-      "id": "7",
-      "name": "Dual Pistols",
-      "type": "Firearms",
-      "damage": 40
-    },
-    {
-      "id": "8",
-      "name": "Explorer Outfit",
-      "type": "Armor",
-      "defense": 30
-    },
-    {
-      "id": "9",
-      "name": "MA5B Assault Rifle",
-      "type": "Firearm",
-      "damage": 65
-    },
-    {
-      "id": "10",
-      "name": "MJOLNIR Armor",
-      "type": "Armor",
-      "defense": 60
-    },
-    {
-      "id": "11",
-      "name": "Red Lightsaber",
-      "type": "Lightsaber",
-      "damage": 80
-    },
-    {
-      "id": "12",
-      "name": "Hidden Blade",
-      "type": "Dagger",
-      "damage": 35
-    },
-    {
-      "id": "13",
-      "name": "Assassin Robe",
-      "type": "Armor",
-      "defense": 25
-    },
-    {
-      "id": "14",
-      "name": "Buster Sword",
-      "type": "Greatsword",
-      "damage": 85
-    },
-    {
-      "id": "15",
-      "name": "Fire Flower",
-      "type": "Power-Up",
-      "effect": "Shoots fireballs"
-    },
-    {
-      "id": "16",
-      "name": "Super Mushroom",
-      "type": "Power-Up",
-      "effect": "Grows in size"
-    },
-    {
-      "id": "17",
-      "name": "SOCOM Pistol",
-      "type": "Firearm",
-      "damage": 50
-    },
-    {
-      "id": "18",
-      "name": "Stealth Suit",
-      "type": "Armor",
-      "defense": 35
-    },
-    {
-      "id": "19",
-      "name": "Arm Cannon",
-      "type": "Cannon",
-      "damage": 75
-    },
-    {
-      "id": "20",
-      "name": "Varia Suit",
-      "type": "Armor",
-      "defense": 70
-    },
-    {
-      "id": "21",
-      "name": "Masamune",
-      "type": "Katana",
-      "damage": 100
-    }
-  ]
-}
+      {
+        "id": "1",
+        "name": "Silver Sword",
+        "type": "Sword",
+        "damage": 55,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Longsword_of_the_14th_century.jpg"
+      },
+      {
+        "id": "2",
+        "name": "Master Sword",
+        "type": "Sword",
+        "damage": 60,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Sword_icon_2.png"
+      },
+      {
+        "id": "3",
+        "name": "Blades of Chaos",
+        "type": "Dual Blades",
+        "damage": 75,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/30/Knife.png"
+      },
+      {
+        "id": "4",
+        "name": "Witcher Armor",
+        "type": "Armor",
+        "defense": 45,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Medieval_armor_in_salle_d%27armes.jpg"
+      },
+      {
+        "id": "5",
+        "name": "Hylian Shield",
+        "type": "Shield",
+        "defense": 50,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Medieval_shield_icon.png"
+      },
+      {
+        "id": "6",
+        "name": "Leviathan Axe",
+        "type": "Axe",
+        "damage": 70,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Firefighter_axe_icon.svg"
+      },
+      {
+        "id": "7",
+        "name": "Dual Pistols",
+        "type": "Firearms",
+        "damage": 40,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/6/69/Glock_17_pistol.png"
+      },
+      {
+        "id": "8",
+        "name": "Explorer Outfit",
+        "type": "Armor",
+        "defense": 30,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Outdoor_clothing_icon.png"
+      },
+      {
+        "id": "9",
+        "name": "MA5B Assault Rifle",
+        "type": "Firearm",
+        "damage": 65,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Assault_rifle_icon.svg"
+      },
+      {
+        "id": "10",
+        "name": "MJOLNIR Armor",
+        "type": "Armor",
+        "defense": 60,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Armor_icon.png"
+      },
+      {
+        "id": "11",
+        "name": "Red Lightsaber",
+        "type": "Lightsaber",
+        "damage": 80,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Lightsaber_red.svg"
+      },
+      {
+        "id": "12",
+        "name": "Hidden Blade",
+        "type": "Dagger",
+        "damage": 35,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Dagger_icon.png"
+      },
+      {
+        "id": "13",
+        "name": "Assassin Robe",
+        "type": "Armor",
+        "defense": 25,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Hooded_cloak_icon.svg"
+      },
+      {
+        "id": "14",
+        "name": "Buster Sword",
+        "type": "Greatsword",
+        "damage": 85,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Buster_sword_icon.svg"
+      },
+      {
+        "id": "15",
+        "name": "Fire Flower",
+        "type": "Power-Up",
+        "effect": "Shoots fireballs",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Fire_flower_icon.svg"
+      },
+      {
+        "id": "16",
+        "name": "Super Mushroom",
+        "type": "Power-Up",
+        "effect": "Grows in size",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Super_mushroom_icon.svg"
+      },
+      {
+        "id": "17",
+        "name": "SOCOM Pistol",
+        "type": "Firearm",
+        "damage": 50,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/Pistol_icon.svg"
+      },
+      {
+        "id": "18",
+        "name": "Stealth Suit",
+        "type": "Armor",
+        "defense": 35,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/4/44/Ninja_clothing_icon.svg"
+      },
+      {
+        "id": "19",
+        "name": "Arm Cannon",
+        "type": "Cannon",
+        "damage": 75,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Cannon_icon.png"
+      },
+      {
+        "id": "20",
+        "name": "Varia Suit",
+        "type": "Armor",
+        "defense": 70,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/27/Sci-fi_armor_icon.svg"
+      },
+      {
+        "id": "21",
+        "name": "Masamune",
+        "type": "Katana",
+        "damage": 100,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Katana_icon.svg"
+      }
+    ]
+  }

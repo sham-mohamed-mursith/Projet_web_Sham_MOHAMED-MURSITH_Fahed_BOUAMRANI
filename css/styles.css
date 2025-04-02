@@ -312,3 +312,14 @@ header button i {
   width: 300px;
   margin-top: 10px;
 }
+
+
+.character-stat {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+

@@ -2,6 +2,8 @@ import Provider from './provider.js';
 import { renderFavoris } from './views/favoris.js';
 import { renderDetail } from './views/detail.js';
 import { renderCombat } from './views/combat.js';
+import { renderEquipements } from './views/equipements.js';
+import { renderEquipementDetail } from './views/equipementDetail.js';
 
 
 const provider = new Provider('http://localhost:3000');
@@ -97,6 +99,11 @@ function router() {
     renderDetail(provider, id);
   } else if (hash === "#/combat") {
     renderCombat(provider);
+  } else if (hash === "#/equipements") {
+    renderEquipements(provider);
+  } else if (hash.startsWith("#/equipement/")) {
+    const id = hash.split("/")[2];
+    renderEquipementDetail(provider, id);
   }
 }
 
@@ -112,3 +119,7 @@ document.getElementById("retour-accueil").addEventListener("click", () => {
 document.getElementById("combat-btn").addEventListener("click", () => {
   window.location.hash = "#/combat";
 });
+document.getElementById("voir-equipements").addEventListener("click", () => {
+  window.location.hash = "#/equipements";
+});
+

@@ -1,19 +1,27 @@
 export function renderFavoris(provider) {
   const app = document.getElementById("app");
-  app.innerHTML = `<div class="characters-grid" id="characters-container"><div class="loader"></div></div>`;
+  app.innerHTML = `
+    <h2>Personnages favoris</h2>
+    <div class="characters-grid" id="favoris-container"><div class="loader"></div></div>
+    <h2>Équipements favoris</h2>
+    <div class="characters-grid" id="equipements-favoris-container"><div class="loader"></div></div>
+  `;
 
-  const favoris = JSON.parse(localStorage.getItem('favoris')) || [];
-  if (favoris.length === 0) {
-    app.innerHTML = `<p class="empty-favoris">Aucun favori enregistré.</p>`;
-    return;
-  }
+  const favoris = JSON.parse(localStorage.getItem("favoris")) || [];
+  const favorisEquipements = JSON.parse(localStorage.getItem("favorisEquipements")) || [];
 
   provider.getPersonnages().then(personnages => {
-    const persos = personnages.filter(p => favoris.includes(p.id));
-    const container = document.getElementById("characters-container");
+    const container = document.getElementById("favoris-container");
     container.innerHTML = "";
 
-    persos.forEach((perso, index) => {
+    const favorisPersos = personnages.filter(p => favoris.includes(p.id));
+
+    if (favorisPersos.length === 0) {
+      container.innerHTML = "<p>Aucun personnage en favori.</p>";
+      return;
+    }
+
+    favorisPersos.forEach((perso, index) => {
       setTimeout(() => {
         const card = document.createElement("div");
         card.classList.add("character-card", "fade-in");
@@ -28,28 +36,46 @@ export function renderFavoris(provider) {
             <div class="character-rating">
               <span>${perso.rating}</span> ⭐
             </div>
-            <button class="favori-btn" data-id="${perso.id}">
-              <i class="fa-solid fa-star"></i> Favori
-            </button>
           </div>
         `;
-
         card.querySelector("img").addEventListener("click", () => {
           window.location.hash = `#/detail/${perso.id}`;
         });
+        container.appendChild(card);
+      }, index * 50);
+    });
+  });
 
-        card.querySelector(".favori-btn").addEventListener("click", (e) => {
-          e.stopPropagation();
-          const id = perso.id;
-          const favoris = JSON.parse(localStorage.getItem('favoris')) || [];
-          const index = favoris.indexOf(id);
-          if (index !== -1) {
-            favoris.splice(index, 1);
-            localStorage.setItem("favoris", JSON.stringify(favoris));
-            renderFavoris(provider);
-          }
+  provider.getEquipements().then(equipements => {
+    const container = document.getElementById("equipements-favoris-container");
+    container.innerHTML = "";
+
+    const favorisEquips = equipements.filter(e => favorisEquipements.includes(e.id));
+
+    if (favorisEquips.length === 0) {
+      container.innerHTML = "<p>Aucun équipement en favori.</p>";
+      return;
+    }
+
+    favorisEquips.forEach((equip, index) => {
+      setTimeout(() => {
+        const card = document.createElement("div");
+        card.classList.add("character-card", "fade-in");
+        card.innerHTML = `
+          <img src="${equip.image}" alt="${equip.name}">
+          <div class="character-info">
+            <h2>${equip.name}</h2>
+            <div class="character-meta">
+              <span class="character-class">${equip.type}</span>
+              <span class="character-stat">
+                ${equip.damage ? `🗡 ${equip.damage}` : equip.defense ? `🛡 ${equip.defense}` : ""}
+              </span>
+            </div>
+          </div>
+        `;
+        card.querySelector("img").addEventListener("click", () => {
+          window.location.hash = `#/equipement/${equip.id}`;
         });
-
         container.appendChild(card);
       }, index * 50);
     });
