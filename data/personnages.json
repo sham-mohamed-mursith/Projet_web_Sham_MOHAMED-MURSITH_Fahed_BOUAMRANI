@@ -148,147 +148,147 @@
         "name": "Silver Sword",
         "type": "Sword",
         "damage": 55,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Longsword_of_the_14th_century.jpg"
+        "image": "https://media.sketchfab.com/models/a824e02004b2483883689efd0c65296f/thumbnails/9cd0b0ced35644ed8332a318ad54e9ff/8ecfb448ac994f2484a67498f39223e4.jpeg"
       },
       {
         "id": "2",
         "name": "Master Sword",
         "type": "Sword",
         "damage": 60,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Sword_icon_2.png"
+        "image": "https://i.ebayimg.com/images/g/9D0AAOSw4mZj5TpN/s-l1200.jpg"
       },
       {
         "id": "3",
         "name": "Blades of Chaos",
         "type": "Dual Blades",
         "damage": 75,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/30/Knife.png"
+        "image": "https://i.redd.it/leviathan-axe-or-the-blades-of-chaos-v0-8uru9y1tlvla1.png?width=1920&format=png&auto=webp&s=ee0416d6ef6be0baec667f1fcf8281bb7671ed16"
       },
       {
         "id": "4",
         "name": "Witcher Armor",
         "type": "Armor",
         "defense": 45,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Medieval_armor_in_salle_d%27armes.jpg"
+        "image": "https://preview.redd.it/150-hours-and-this-is-still-the-best-looking-armour-v0-zex43i9kxffa1.jpg?width=640&crop=smart&auto=webp&s=9d6ad707c34896e57709e8e2e9ef71fc2f48aefa"
       },
       {
         "id": "5",
         "name": "Hylian Shield",
         "type": "Shield",
         "defense": 50,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Medieval_shield_icon.png"
+        "image": "https://static.papergeek.fr/2015/03/bouclier-zelda-reproduction.jpg"
       },
       {
         "id": "6",
         "name": "Leviathan Axe",
         "type": "Axe",
         "damage": 70,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Firefighter_axe_icon.svg"
+        "image": "https://preview.redd.it/all-i-want-for-christmas-is-the-leviathan-axe-v0-v7h1vgs80w8e1.jpeg?auto=webp&s=ad50ca16c1a58428e6245e30eb7c7e626d545a56"
       },
       {
         "id": "7",
         "name": "Dual Pistols",
         "type": "Firearms",
         "damage": 40,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/69/Glock_17_pistol.png"
+        "image": "https://i.redd.it/dgwsxgl79te11.jpg"
       },
       {
         "id": "8",
         "name": "Explorer Outfit",
         "type": "Armor",
         "defense": 30,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Outdoor_clothing_icon.png"
+        "image": "https://p.turbosquid.com/ts-thumb/Pc/N15CiS/vu/searchimage/png/1655760525/600x600/fit_q87/f7114a86f6bf9f3a27441d07b798f8811411eac3/searchimage.jpg"
       },
       {
         "id": "9",
         "name": "MA5B Assault Rifle",
         "type": "Firearm",
         "damage": 65,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Assault_rifle_icon.svg"
+        "image": "https://cdna.artstation.com/p/assets/images/images/044/906/340/medium/ben-judd-pov-info.jpg?1641454649"
       },
       {
         "id": "10",
         "name": "MJOLNIR Armor",
         "type": "Armor",
         "defense": 60,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Armor_icon.png"
+        "image": "https://i.redd.it/zmbwintkdm081.jpg"
       },
       {
         "id": "11",
         "name": "Red Lightsaber",
         "type": "Lightsaber",
         "damage": 80,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Lightsaber_red.svg"
+        "image": "https://ih1.redbubble.net/image.3027522841.0247/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg"
       },
       {
         "id": "12",
         "name": "Hidden Blade",
         "type": "Dagger",
         "damage": 35,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Dagger_icon.png"
+        "image": "https://www.purearts.com/cdn/shop/files/Purearts-NaoeHiddenBlade-promo_04_grande.jpg?v=1718208103"
       },
       {
         "id": "13",
         "name": "Assassin Robe",
         "type": "Armor",
         "defense": 25,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Hooded_cloak_icon.svg"
+        "image": "https://i.redd.it/these-are-my-favourite-assassins-robes-of-all-time-v0-bdwa8yhwgkqd1.jpg?width=1920&format=pjpg&auto=webp&s=b2d80feb630b8b6aa20513d8867542f360a0beec"
       },
       {
         "id": "14",
         "name": "Buster Sword",
         "type": "Greatsword",
         "damage": 85,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Buster_sword_icon.svg"
+        "image": "https://i.etsystatic.com/12207931/r/il/6bd4b2/1277712361/il_fullxfull.1277712361_dxr4.jpg"
       },
       {
         "id": "15",
         "name": "Fire Flower",
         "type": "Power-Up",
         "effect": "Shoots fireballs",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Fire_flower_icon.svg"
+        "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c9a27e0a-52f7-4cec-a932-b6246308a58e/dfj51kx-946b5135-2265-4145-967e-605a1097ba77.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M5YTI3ZTBhLTUyZjctNGNlYy1hOTMyLWI2MjQ2MzA4YTU4ZVwvZGZqNTFreC05NDZiNTEzNS0yMjY1LTQxNDUtOTY3ZS02MDVhMTA5N2JhNzcucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.MKSQTY5UULu1mI5VvfQrSEW9It3aB0NRKcnlYP0F6H4"
       },
       {
         "id": "16",
         "name": "Super Mushroom",
         "type": "Power-Up",
         "effect": "Grows in size",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Super_mushroom_icon.svg"
+        "image": "https://img-new.cgtrader.com/items/4512219/0d97b356bb/large/super-mario-bros-movie-magic-mushroom-3d-model-0d97b356bb.jpg"
       },
       {
         "id": "17",
         "name": "SOCOM Pistol",
         "type": "Firearm",
         "damage": 50,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/Pistol_icon.svg"
+        "image": "https://www.giantbomb.com/a/uploads/scale_medium/0/4586/317845-30281349_000_0152.jpg"
       },
       {
         "id": "18",
         "name": "Stealth Suit",
         "type": "Armor",
         "defense": 35,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/4/44/Ninja_clothing_icon.svg"
+        "image": "https://i.ebayimg.com/images/g/hlwAAOSw22RgL7cs/s-l400.jpg"
       },
       {
         "id": "19",
         "name": "Arm Cannon",
         "type": "Cannon",
         "damage": 75,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Cannon_icon.png"
+        "image": "https://media.sketchfab.com/models/c4b66ccbb59548df9708f69f49b3fe7e/thumbnails/058a32c5309d4318a317fab5b4132d64/ee421c62d25a4b168a8c8fc84948f4d6.jpeg"
       },
       {
         "id": "20",
         "name": "Varia Suit",
         "type": "Armor",
         "defense": 70,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/2/27/Sci-fi_armor_icon.svg"
+        "image": "https://i.ytimg.com/vi/j5Ooklwzt4Q/maxresdefault.jpg"
       },
       {
         "id": "21",
         "name": "Masamune",
         "type": "Katana",
         "damage": 100,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Katana_icon.svg"
+        "image": "https://i.ytimg.com/vi/9Pu92ldP9g4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC-lg0jKveP3Adk8qQNl-pAvOAL7w"
       }
     ]
   }
