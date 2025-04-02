@@ -323,3 +323,27 @@ header button i {
   font-weight: 600;
 }
 
+/* Combat selection highlight */
+.character-card.selected-1 {
+  border: 3px solid #3498db;
+  box-shadow: 0 0 10px #3498db;
+}
+.character-card.selected-2 {
+  border: 3px solid #e67e22;
+  box-shadow: 0 0 10px #e67e22;
+}
+#fight-btn {
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  background: linear-gradient(to right, #3498db, #2980b9);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+#fight-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
