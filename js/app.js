@@ -1,6 +1,8 @@
 import Provider from './provider.js';
 import { renderFavoris } from './views/favoris.js';
 import { renderDetail } from './views/detail.js';
+import { renderCombat } from './views/combat.js';
+
 
 const provider = new Provider('http://localhost:3000');
 const app = document.getElementById("app");
@@ -93,6 +95,8 @@ function router() {
   } else if (hash.startsWith("#/detail/")) {
     const id = hash.split("/")[2];
     renderDetail(provider, id);
+  } else if (hash === "#/combat") {
+    renderCombat(provider);
   }
 }
 
@@ -104,4 +108,7 @@ document.getElementById("voir-favoris").addEventListener("click", () => {
 });
 document.getElementById("retour-accueil").addEventListener("click", () => {
   window.location.hash = "#/";
+});
+document.getElementById("combat-btn").addEventListener("click", () => {
+  window.location.hash = "#/combat";
 });
