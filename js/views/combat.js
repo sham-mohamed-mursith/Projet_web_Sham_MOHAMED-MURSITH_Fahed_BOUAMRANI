@@ -10,11 +10,13 @@ export function renderCombat(provider) {
       app.innerHTML = `
         <h2>Simuler un Combat</h2>
         <p>Choisissez deux personnages en cliquant sur leurs images.</p>
-        <div class="characters-grid" id="fighters-grid"></div>
         <div style="text-align: center; margin: 20px;">
           <button id="fight-btn" disabled>⚔️ Combattre !</button>
         </div>
         <div id="combat-result" style="margin-top: 20px;"></div>
+        <div class="characters-grid" id="fighters-grid"></div>
+
+        
       `;
 
       const grid = document.getElementById("fighters-grid");

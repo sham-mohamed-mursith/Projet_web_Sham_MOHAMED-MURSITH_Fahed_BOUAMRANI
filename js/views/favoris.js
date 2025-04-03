@@ -100,7 +100,7 @@ export function renderFavoris(provider) {
           const id = equip.id;
           favorisEquipements = favorisEquipements.filter(fid => fid !== id);
           localStorage.setItem("favorisEquipements", JSON.stringify(favorisEquipements));
-          renderFavoris(provider); // rafraîchit l'affichage
+          renderFavoris(provider);
         });
 
         container.appendChild(card);
